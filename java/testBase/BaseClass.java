@@ -1,6 +1,7 @@
 package testBase;
 
 import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Date;
@@ -19,9 +20,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class BaseClass {
 
 	public WebDriver driver;
+	public Logger logger;
 	public Properties p;
 	
 	@BeforeClass(groups= {"sanity","master","regressionTest"})
@@ -33,6 +38,9 @@ public class BaseClass {
 		FileReader file = new FileReader("./src//test//resources//config.properties");
 		p=new Properties();
 		p.load(file);
+		
+		//Logger
+		
 		
 		//For selecting the browser
 		
